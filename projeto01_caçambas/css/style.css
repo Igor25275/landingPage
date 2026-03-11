@@ -1,0 +1,224 @@
+@import url(../css/paleta_cores.css);
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+}
+
+header{
+    background-color: var(--color-neutra-1);
+    position: sticky;
+    top: 0;
+    padding: 10px 4%;
+
+    #nav_bar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        #logo{
+            display: flex;
+            align-items: center;
+
+            p{
+                font-family: "Archivo Black", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 1.5rem;
+                color: var(--color-neutra-5);
+
+                span{
+                    color: var(--color-green-0);
+                }
+            }
+
+            img{
+                width: 160px;
+                height: 80px;
+                
+            }
+        }
+
+        .btn{
+            height: 30px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        ul{
+            display: none;
+            list-style: none;
+
+            &.show{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: var(--color-neutra-1);
+                left: 0;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                gap: 15px;
+                padding: 5px;
+            }
+
+            li{
+                
+                a{
+                    color: var(--color-neutra-5);
+                    text-decoration: none;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+
+                }
+                
+            }
+        }
+    }
+    
+}
+
+
+main{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-neutra-4);
+    padding: 10px;
+    height: 400px;
+    gap: 20px;
+
+    #description{
+        padding: 5px;
+        text-align: center;
+        color: var(--color-neutra-0);
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        gap: 20px;
+        
+        
+
+        #txt1{
+            font-size: 3rem;
+            
+        }
+
+        #txt2{
+            color: var(--color-green-0);
+        }
+
+        #btn_description{
+            display: inline-block;
+            margin-top: 50px;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: "Archivo Black", sans-serif;
+            background-color: var(--color-yellow-0);
+            color: var(--color-blue-2);
+            border: 2px solid var(--color-neutra-5);
+            cursor: pointer;
+            transition: all 0.2s ease-in;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+
+            &:hover{
+                background-color: var(--color-yellow-2);
+                
+            }
+
+        }
+
+    }
+
+}
+
+footer{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    #description-box{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        .container{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid var(--color-neutra-3);
+            padding: 3px;
+            width: 250px;
+            height: 150px;
+            gap: 10px;
+            border-radius: 10px;
+            background-color: var(--color-neutra-1);
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+            font-family: "Archivo Black", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            
+            p{
+                color: var(--color-blue-2);
+               
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: 600px) {
+    header{
+
+        #nav_bar{
+
+            #logo{
+
+                p{
+                    font-size: 3rem;
+                }
+
+            }
+
+            .btn{
+                display: none;
+            }
+
+            ul{
+                display: flex;
+                gap: 15px;
+                
+                li{
+                    text-decoration: none;
+                }
+            }
+        }
+        
+    }
+
+    footer{
+        #description-box{
+
+            flex-direction: row;
+            justify-content: space-around;
+
+        }
+    }
+}

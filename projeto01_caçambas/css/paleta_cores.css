@@ -1,0 +1,26 @@
+:root{
+
+    --color-neutra-0: #ffffff;
+    --color-neutra-1: #f5f5f5;
+    --color-neutra-2: #cccccc;
+    --color-neutra-3: #898989;
+    --color-neutra-4: #666666;
+    --color-neutra-5: #3d3d3d;
+    --color-neutra-6: #000000;
+
+    /* Amarelo */
+    --color-yellow-0: #ffd700;
+    --color-yellow-1: #f1c40f;
+    --color-yellow-2: #e1ad01;
+
+    /* Verde */
+    --color-green-0: #2ecc71;
+    --color-green-1: #27ae60;
+    --color-green-2: #1e5631;
+
+    /* Azul */
+    --color-blue-0: #4682b4;
+    --color-blue-1: #2980b9;
+    --color-blue-2: #2c3e50;
+    
+}

@@ -8,7 +8,9 @@
 }
 
 body{
-    height: 100vh;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 header{
@@ -16,6 +18,9 @@ header{
     position: sticky;
     top: 0;
     padding: 10px 4%;
+    display: grid;
+    grid-row: 1 / 2;
+    align-items: center;
 
     #nav_bar{
         display: flex;
@@ -39,8 +44,8 @@ header{
             }
 
             img{
-                width: 160px;
-                height: 80px;
+                width: 150px;
+                height: auto;
                 
             }
         }
@@ -63,7 +68,7 @@ header{
                 left: 0;
                 width: 100%;
                 position: absolute;
-                top: 80px;
+                top: 100%;
                 gap: 15px;
                 padding: 5px;
             }
@@ -85,16 +90,54 @@ header{
     
 }
 
+#box_contact{
+
+    display: none;
+
+    &.show{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+        min-height: 400px;
+        background-color: var(--color-neutra-3);
+        z-index: 9999;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    #btn_close{
+        padding: 10px;
+        border-radius: 3px;
+        border: 2PX solid var(--color-blue-2);
+        cursor: pointer;
+        background-color: var(--color-neutra-1);
+    }
+            
+}
+
+body:has(#box_contact.show)::after{
+    content: " ";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+}
 
 main{
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--color-neutra-4);
     padding: 10px;
-    height: 400px;
     gap: 20px;
 
     #description{
@@ -109,7 +152,7 @@ main{
         
 
         #txt1{
-            font-size: 3rem;
+            font-size: clamp(2rem, 8vw, 3rem);
             
         }
 
@@ -120,7 +163,7 @@ main{
         #btn_description{
             display: inline-block;
             margin-top: 50px;
-            padding: 5px;
+            padding: 10px 7px;
             border-radius: 10px;
             font-size: 1rem;
             font-family: "Archivo Black", sans-serif;
@@ -128,12 +171,13 @@ main{
             color: var(--color-blue-2);
             border: 2px solid var(--color-neutra-5);
             cursor: pointer;
-            transition: all 0.2s ease-in;
+            transition: color 0.2s ease-in;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             text-decoration: none;
 
             &:hover{
                 background-color: var(--color-yellow-2);
+                transform: translateY(-2px);
                 
             }
 
@@ -144,10 +188,11 @@ main{
 }
 
 footer{
-    margin-top: 20px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    background-color: var(--color-neutra-1);
 
     #description-box{
 
@@ -163,8 +208,9 @@ footer{
             justify-content: center;
             text-align: center;
             border: 1px solid var(--color-neutra-3);
-            padding: 3px;
-            width: 250px;
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
             height: 150px;
             gap: 10px;
             border-radius: 10px;
@@ -174,6 +220,10 @@ footer{
             font-weight: 400;
             font-style: normal;
             
+            &:hover{
+                transform: translateY(-10px);
+            }
+
             p{
                 color: var(--color-blue-2);
                
@@ -184,7 +234,7 @@ footer{
 
 
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
     header{
 
         #nav_bar{
@@ -193,6 +243,10 @@ footer{
 
                 p{
                     font-size: 3rem;
+                }
+
+                img{
+                    width: 200px;
                 }
 
             }
@@ -205,12 +259,17 @@ footer{
                 display: flex;
                 gap: 15px;
                 
+                
                 li{
-                    text-decoration: none;
+                    &:hover{
+                        text-decoration: underline;
+                        
+                    }
+
                 }
             }
         }
-        
+
     }
 
     footer{
